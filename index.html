@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Answer Generator</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-size: 3rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="response">Loading...</div>
+
+    <script>
+      function getAnswer() {
+        const roll = Math.random(); // Generates a number between 0 and 1
+        if (roll < 0.9) return "No"; // 90% chance
+        if (roll < 0.97) return "Maybe"; // 7% chance
+        return "Yes"; // 3% chance
+      }
+
+      window.onload = function () {
+        document.getElementById("response").textContent = getAnswer();
+      };
+    </script>
+  </body>
+</html>
