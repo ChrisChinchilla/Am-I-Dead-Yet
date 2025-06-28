@@ -2,32 +2,71 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A complex calculation machinethat tells you if you're dead yet. Made by Chris Chinchilla." />
+    <meta name="keywords" content="life, death,answers, existential, philosophy" />
+    <meta name="author" content="Chris Chinchilla" />
+    <meta name="robots" content="index, follow" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://amideadyet.me" />
+    <meta property="og:title" content="Am I Dead Yet?" />
+    <meta property="og:description" content="A complex calculation machinethat tells you if you're dead yet. Made by Chris Chinchilla." />
+    <meta property="og:site_name" content="Am I Dead Yet?" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:url" content="https://amideadyet.me" />
+    <meta property="twitter:title" content="Am I Dead Yet?" />
+    <meta property="twitter:description" content="A complex calculation machinethat tells you if you're dead yet. Made by Chris Chinchilla." />
+    <meta property="twitter:creator" content="@chrischinchilla" />
+    
+    <!-- Theme and app metadata -->
+    <meta name="theme-color" content="#000000" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Am I Dead Yet?" />
+    
     <title>Am I dead yet?</title>
     <style>
       body {
         font-family: sans-serif;
-        /* display: flex; */
-        /* justify-content: center;*/
-        /* align-items: center; 
-        margin: auto 0; */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         height: 100vh;
         font-size: 3rem;
+        margin: 0;
+        text-align: center;
+      }
+      footer {
+        font-size: 0.7rem;
       }
     </style>
   </head>
   <body>
-    <h2>Am I dead yet?</h2>
-        <p id="response">Loading...</p>
+    <h1>Am I dead yet?</h2>
+        <p id="response"></p>
+        <footer><p>Made with ❤️ and 😆 by <a href="https://chris.chinchilla.com" target="_blank">Chris Chinchilla</a></p></footer>
     <script>
       function getAnswer() {
         const roll = Math.random(); // Generates a number between 0 and 1
-        if (roll < 0.9) return "No"; // 90% chance
-        if (roll < 0.97) return "Maybe"; // 7% chance
-        return "Yes"; // 3% chance
+        const delay = Math.random() * 2000 + 500; // Random delay between 500ms and 2500ms
+        setTimeout(() => {
+          let result;
+          if (roll < 0.9) result = "No"; // 90% chance
+          else if (roll < 0.97) result = "Maybe"; // 7% chance
+          else result = "Yes"; // 3% chance
+          
+          document.getElementById("response").textContent = result;
+        }, delay);
       }
 
       window.onload = function () {
-        document.getElementById("response").textContent = getAnswer();
+        document.getElementById("response").textContent = "Calculating…";
+        getAnswer();
       };
     </script>
   </body>
